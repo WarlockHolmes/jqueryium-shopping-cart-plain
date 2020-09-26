@@ -8,9 +8,15 @@ var itemTotal = function (row) {
 }
 
 var updateItemTotal = function () {
+  var arr = [];
   $('tbody tr').each(function(i, row){
     itemTotal($(row));
+    arr.push(itemTotal($(row)));
   })
+  var total = arr.reduce(function(sum, val){
+    return sum += val;
+  });
+  $('#cart-total').text('Cart Total: $'+total);
 }
 
 $(document).ready(function(){
