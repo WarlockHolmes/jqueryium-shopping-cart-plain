@@ -1,9 +1,9 @@
 var itemTotal = function (row) {
   var total = row.children('.item-total');
   var quantity = Number(row.find('.item-quantity input').val());
-  var price = Number(row.children('.item-price').text());
+  var price = Number(row.children('.item-price').text().slice(1));
   var amount = quantity * price;
-  total.text(amount);
+  total.text('$'+amount);
   return amount;
 }
 
@@ -32,13 +32,18 @@ $(document).ready(function(){
     if (item !== undefined && name !== undefined){
       $('tbody').append('<tr>'+
         '<td class="item-name">'+item+'</td>'+
-        '<td class="item-price">'+price+'</td>'+
+        '<td class="item-price">$'+price+'</td>'+
         '<td class="item-quantity"><input name="name" type="number" value="1"/></td>'+
         '<td class="item-total"></td>'+
+        '<td><button class="btn btn-outline-secondary">remove</button></td>'+
       '</tr>');
       $('#add-item input').first().val('');
       $('#add-item input').last().val('');
     }
+    updateItemTotal();
+  });
+  $(document).on('click', 'td > button', function(){
+    $(this).closest('tr').remove();
     updateItemTotal();
   });
 });
