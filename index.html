@@ -26,23 +26,32 @@
               <thead>
                 <tr>
                   <th>Item</th>
-                  <th>Price</th>
+                  <th>Price ($)</th>
                   <th>Quantity</th>
-                  <th>Item Total</th>
+                  <th>Item Total ($)</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td class="item-name">Fish</td>
-                  <td class="item-price">$5</td>
-                  <td class="item-quantity"></td>
+                  <td class="item-price">5</td>
+                  <td class="item-quantity"><input name="name" type="number" value="1"/></td>
+                  <td class="item-total"></td>
+                </tr>
+                <tr>
+                  <td class="item-name">Dog Food</td>
+                  <td class="item-price">12</td>
+                  <td class="item-quantity"><input name="name" type="number" value="1"/></td>
                   <td class="item-total"></td>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
-        <form>
+        <form id="add-item">
+          <input name="name" type="text" placeholder="Item" required/>
+          <input name="price" type="number" placeholder="Price" required/>
+          <button class="btn btn-primary">add</button>
         </form>
       </div>
     </div>
